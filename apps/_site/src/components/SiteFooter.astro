@@ -1,0 +1,26 @@
+---
+import { repositoryUrl } from '../data/project';
+---
+
+<footer class="site-footer content-width">
+  <nav aria-label="Footer navigation">
+    <a href="/#project">Features</a>
+    <span aria-hidden="true">·</span>
+    <a href={repositoryUrl}>GitHub</a>
+    <span aria-hidden="true">·</span>
+    <a
+      href="/privacy"
+      aria-current={Astro.url.pathname === '/privacy' ? 'page' : undefined}
+    >
+      Privacy
+    </a>
+    <span aria-hidden="true">·</span>
+    <a
+      href="/terms"
+      aria-current={Astro.url.pathname === '/terms' ? 'page' : undefined}
+    >
+      Project terms
+    </a>
+  </nav>
+  <p>Open source. Self hosted. Made for your hardware.</p>
+</footer>

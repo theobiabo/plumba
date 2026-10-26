@@ -1,0 +1,38 @@
+---
+import { icons } from '@iconify-json/ph/icons.json';
+
+type IconName =
+  | 'arrow-right'
+  | 'arrow-up-right'
+  | 'check'
+  | 'code'
+  | 'cube'
+  | 'github-logo'
+  | 'hard-drives'
+  | 'heartbeat'
+  | 'lock-simple'
+  | 'plus'
+  | 'sliders-horizontal'
+  | 'terminal-window';
+
+interface Props {
+  name: IconName;
+  size?: number;
+  class?: string;
+}
+
+const { name, size = 20, class: className } = Astro.props;
+const icon = icons[name];
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width={size}
+  height={size}
+  viewBox="0 0 256 256"
+  class={className}
+  aria-hidden="true"
+  focusable="false"
+>
+  <Fragment set:html={icon.body} />
+</svg>

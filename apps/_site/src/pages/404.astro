@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Page not found | Plumba"
+  description="This page could not be found. Return to the Plumba homepage."
+  noindex
+>
+  <section class="error-page container">
+    <p class="error-code" aria-hidden="true">
+      404
+    </p>
+    <h1>Page not found.</h1>
+    <p>
+      The page you are looking for is not here. The project is still taking
+      shape.
+    </p>
+    <a class="button button-primary" href="/">
+      Back to Plumba
+    </a>
+  </section>
+</Layout>

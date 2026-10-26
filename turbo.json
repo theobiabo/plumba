@@ -1,0 +1,48 @@
+{
+  "$schema": "https://turborepo.dev/schema.json",
+  "futureFlags": {
+    "experimentalCargoWorkspaces": true,
+    "experimentalTaskCommand": true
+  },
+  "globalDependencies": [".nvmrc", ".prettierrc.json", ".prettierignore"],
+  "tasks": {
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "build": {
+      "dependsOn": ["^build"]
+    },
+    "@plumba/dashboard#build": {
+      "outputs": ["dist/**"]
+    },
+    "site#dev": {
+      "cache": false,
+      "persistent": false
+    },
+    "site#build": {
+      "outputs": ["dist/**"]
+    },
+    "check": {},
+    "lint": {},
+    "plumba-rust#lint": {
+      "command": [
+        "cargo",
+        "clippy",
+        "--workspace",
+        "--all-targets",
+        "--locked",
+        "--",
+        "-D",
+        "warnings"
+      ]
+    },
+    "test": {},
+    "format": {
+      "cache": false
+    },
+    "format:check": {
+      "cache": false
+    }
+  }
+}

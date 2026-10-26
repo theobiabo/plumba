@@ -1,0 +1,17 @@
+---
+import Brand from './Brand.astro';
+import Icon from './Icon.astro';
+import { repositoryUrl } from '../data/project';
+---
+
+<header class="site-header">
+  <div class="header-inner">
+    <Brand />
+    <nav class="header-navigation" aria-label="Main navigation">
+      <a href="/#project">Features</a>
+      <a class="header-source" href={repositoryUrl}>
+        GitHub <Icon name="arrow-up-right" size={14} />
+      </a>
+    </nav>
+  </div>
+</header>

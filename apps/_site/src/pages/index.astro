@@ -1,0 +1,73 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import { repositoryUrl } from '../data/project';
+
+const capabilities = [
+  {
+    title: 'Deploy',
+    description: 'Run blockchain nodes on your own machines.',
+  },
+  {
+    title: 'Manage',
+    description: 'Keep configuration and node operations in one place.',
+  },
+  {
+    title: 'Monitor',
+    description: 'Track health, sync progress, logs, and hardware usage.',
+  },
+];
+---
+
+<Layout title="Plumba | Deploy, manage, and monitor blockchain nodes">
+  <div class="hero-stage">
+    <div class="terrain" aria-hidden="true">
+      <img
+        src="/images/terrain-dither.webp"
+        width="1024"
+        height="512"
+        alt=""
+        decoding="async"
+        fetchpriority="low"
+      />
+    </div>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <h1 id="hero-title">
+          Deploy. Manage.
+          <br />
+          Monitor.
+        </h1>
+        <p class="hero-description">Blockchain nodes on your own hardware.</p>
+        <nav class="hero-links" aria-label="Project links">
+          <a href="#project">
+            Explore features <Icon name="arrow-right" size={14} />
+          </a>
+          <a href={repositoryUrl}>
+            GitHub <Icon name="arrow-up-right" size={14} />
+          </a>
+        </nav>
+      </div>
+    </section>
+  </div>
+
+  <section
+    class="project-section content-width"
+    id="project"
+    aria-labelledby="project-title"
+  >
+    <h2 id="project-title">What Plumba does</h2>
+    <div class="capabilities">
+      {capabilities.map((capability) => (
+        <article>
+          <h3>{capability.title}</h3>
+          <p>{capability.description}</p>
+        </article>
+      ))}
+    </div>
+    <p class="project-note">
+      Plumba is in active development. Follow the build on{' '}
+      <a href={repositoryUrl}>GitHub</a>.
+    </p>
+  </section>
+</Layout>
