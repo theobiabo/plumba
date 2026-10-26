@@ -3,7 +3,9 @@
   "compilerOptions": {
     "allowJs": true,
     "checkJs": true,
-    "noUncheckedIndexedAccess": true
+    "noUncheckedIndexedAccess": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
   },
   "include": [".astro/types.d.ts", "**/*"],
   "exclude": ["dist"]

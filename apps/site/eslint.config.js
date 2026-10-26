@@ -7,7 +7,7 @@ import tseslint from 'typescript-eslint';
 export default defineConfig([
   globalIgnores(['dist/**', '.astro/**']),
   {
-    files: ['**/*.{js,mjs,ts}'],
+    files: ['**/*.{js,mjs,ts,tsx}'],
     extends: [js.configs.recommended],
     languageOptions: {
       globals: {
@@ -17,7 +17,7 @@ export default defineConfig([
     },
   },
   {
-    files: ['**/*.ts'],
+    files: ['**/*.{ts,tsx}'],
     extends: [tseslint.configs.recommended],
   },
   ...astro.configs.recommended,

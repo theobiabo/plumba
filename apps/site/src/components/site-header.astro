@@ -4,12 +4,23 @@ import Icon from './icon.astro';
 import { repositoryUrl } from '../data/project';
 ---
 
-<header class="site-header">
-  <div class="header-inner">
+<header class="py-6 max-[600px]:py-5">
+  <div class="mx-auto flex w-[min(760px,calc(100%-48px))] items-center justify-between gap-6 max-[600px]:w-[calc(100%-40px)] max-[600px]:gap-4">
     <Brand />
-    <nav class="header-navigation" aria-label="Main navigation">
-      <a href="/#project">Features</a>
-      <a class="header-source" href={repositoryUrl}>
+    <nav
+      class="flex items-center gap-6 text-[13px] leading-5 max-[600px]:gap-4 max-[360px]:gap-3"
+      aria-label="Main navigation"
+    >
+      <a
+        class="inline-flex items-center gap-2 text-foreground no-underline hover:text-primary"
+        href="/#project"
+      >
+        Features
+      </a>
+      <a
+        class="inline-flex items-center gap-2 text-foreground no-underline hover:text-primary"
+        href={repositoryUrl}
+      >
         GitHub <Icon name="arrow-up-right" size={14} />
       </a>
     </nav>

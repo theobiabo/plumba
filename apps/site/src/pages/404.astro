@@ -7,16 +7,21 @@ import Layout from '../layouts/layout.astro';
   description="This page could not be found. Return to the Plumba homepage."
   noindex
 >
-  <section class="error-page container">
-    <p class="error-code" aria-hidden="true">
+  <section class="mx-auto min-h-[60dvh] w-[calc(100%-40px)] max-w-[760px] pt-10 pb-16 min-[601px]:w-[calc(100%-64px)] min-[601px]:pt-16">
+    <p class="mb-6 text-sm text-muted-foreground" aria-hidden="true">
       404
     </p>
-    <h1>Page not found.</h1>
-    <p>
+    <h1 class="text-3xl leading-tight tracking-tight min-[601px]:text-4xl">
+      Page not found.
+    </h1>
+    <p class="mt-4 max-w-[52ch] leading-7 text-muted-foreground">
       The page you are looking for is not here. The project is still taking
       shape.
     </p>
-    <a class="button button-primary" href="/">
+    <a
+      class="mt-8 inline-flex min-h-11 items-center rounded-sm bg-primary px-5 text-sm text-primary-foreground hover:bg-primary-hover focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+      href="/"
+    >
       Back to Plumba
     </a>
   </section>

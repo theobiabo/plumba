@@ -6,39 +6,59 @@ import Layout from '../layouts/layout.astro';
   title="Privacy | Plumba"
   description="How this Plumba website handles information while you explore the project."
 >
-  <section class="legal-page container">
-    <header class="legal-heading">
-      <h1>Privacy</h1>
-      <p>A simple website for a project being built in the open.</p>
+  <section class="mx-auto w-[calc(100%-40px)] max-w-[760px] pt-10 pb-16 min-[601px]:w-[calc(100%-64px)] min-[601px]:pt-16">
+    <header class="mb-10 border-b border-border pb-8">
+      <h1 class="text-3xl leading-tight tracking-tight min-[601px]:text-4xl">
+        Privacy
+      </h1>
+      <p class="mt-4 leading-7 text-muted-foreground">
+        A simple website for a project being built in the open.
+      </p>
     </header>
-    <div class="prose">
-      <h2>Browsing this website</h2>
-      <p>
-        You can explore Plumba without creating an account. This version of the
-        website has no signup form, advertising cookies, or third party
-        analytics.
-      </p>
-      <h2>Technical requests</h2>
-      <p>
-        Your browser requests pages, fonts, and other files from the server that
-        hosts this website. Those requests can include your IP address, browser
-        information, and the page that referred you here. Any server logging
-        depends on how the website is hosted.
-      </p>
-      <h2>Links to other websites</h2>
-      <p>
-        Some links take you to GitHub or another external website. Those
-        services have their own privacy policies and handle information
-        independently of this website.
-      </p>
-      <h2>Questions about the project</h2>
-      <p>
-        Visit the{' '}
-        <a href="https://github.com/theobiabo/plumba">Plumba repository</a>
-        for the current project information. Avoid sharing personal information
-        in public issues or discussions.
-      </p>
-      <a class="text-link" href="/">
+    <div class="space-y-9 [&_h2]:text-lg [&_h2]:leading-7 [&_p]:mt-3 [&_p]:max-w-[65ch] [&_p]:leading-7 [&_p]:text-muted-foreground">
+      <div>
+        <h2>Browsing this website</h2>
+        <p>
+          You can explore Plumba without creating an account. This version of
+          the website has no signup form, advertising cookies, or third party
+          analytics.
+        </p>
+      </div>
+      <div>
+        <h2>Technical requests</h2>
+        <p>
+          Your browser requests pages, fonts, and other files from the server
+          that hosts this website. Those requests can include your IP address,
+          browser information, and the page that referred you here. Any server
+          logging depends on how the website is hosted.
+        </p>
+      </div>
+      <div>
+        <h2>Links to other websites</h2>
+        <p>
+          Some links take you to GitHub or another external website. Those
+          services have their own privacy policies and handle information
+          independently of this website.
+        </p>
+      </div>
+      <div>
+        <h2>Questions about the project</h2>
+        <p>
+          Visit the{' '}
+          <a
+            class="text-foreground underline underline-offset-4 hover:text-primary focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+            href="https://github.com/theobiabo/plumba"
+          >
+            Plumba repository
+          </a>
+          for the current project information. Avoid sharing personal
+          information in public issues or discussions.
+        </p>
+      </div>
+      <a
+        class="inline-block text-foreground underline underline-offset-4 hover:text-primary focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+        href="/"
+      >
         Back to Plumba
       </a>
     </div>

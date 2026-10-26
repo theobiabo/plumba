@@ -17,17 +17,24 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/react": "^7.1.1",
     "@iconify-json/ph": "^1.2.2",
     "@plumba/ui": "workspace:*",
-    "astro": "^7.4.2"
+    "astro": "^7.4.2",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.12",
     "@eslint/js": "^10.0.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
     "eslint": "^10.13.0",
     "eslint-plugin-astro": "^3.2.1",
     "eslint-plugin-jsx-a11y-x": "^0.2.0",
     "globals": "^16.5.0",
+    "tailwindcss": "^4.3.3",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.61.0"
   }

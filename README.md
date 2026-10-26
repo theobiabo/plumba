@@ -26,13 +26,13 @@ pnpm --filter site astro dev logs
 pnpm --filter site astro dev stop
 ```
 
-The homepage uses port 4321 by default and prints its actual URL when that port is occupied. Astro runs it in the background and records the server state in `apps/_site/.astro`.
+The homepage uses port 4321 by default and prints its actual URL when that port is occupied. Astro runs it in the background and records the server state in `apps/site/.astro`.
 
 ## Structure
 
 ```text
 apps/dashboard/   React, TypeScript, and Vite dashboard
-apps/_site/       Static Astro homepage
+apps/site/        Static Astro homepage
 packages/ui/      Shared Departure Mono theme and shadcn React components
 crates/server/    Rust management server
 crates/agent/     Rust host agent
@@ -68,6 +68,6 @@ Cargo integration and custom native task commands are experimental in Turborepo 
 
 The dashboard build is written to `apps/dashboard/dist`. Deployments serving it must fall back to `index.html` for dashboard routes. Rust builds retain Turborepo's native output detection rather than caching the entire Cargo target directory.
 
-The Astro homepage is built to `apps/_site/dist`. Its build runs `astro check` before generating static pages.
+The Astro homepage is built to `apps/site/dist`. Its build runs `astro check` before generating static pages.
 
 The [shared UI package](packages/ui/README.md) supplies Departure Mono, dark theme tokens, Tailwind styles, and shadcn components to the dashboard. The Astro site imports only its font and tokens.

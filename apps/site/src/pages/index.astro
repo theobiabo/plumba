@@ -1,28 +1,74 @@
 ---
 import Layout from '../layouts/layout.astro';
 import Icon from '../components/icon.astro';
+import { RepositoryButton } from '../components/repository-button';
 import { repositoryUrl } from '../data/project';
 
 const capabilities = [
   {
     title: 'Deploy',
-    description: 'Run blockchain nodes on your own machines.',
+    description:
+      'Choose a host, select a client, and start a node on your hardware.',
+    icon: 'cube',
   },
   {
     title: 'Manage',
-    description: 'Keep configuration and node operations in one place.',
+    description: 'Keep your machines, node settings, and operations together.',
+    icon: 'sliders-horizontal',
   },
   {
     title: 'Monitor',
-    description: 'Track health, sync progress, logs, and hardware usage.',
+    description: 'Follow health, sync progress, logs, and resource use.',
+    icon: 'heartbeat',
+  },
+] as const;
+
+const workflow = [
+  {
+    title: 'Your host',
+    description: 'A machine you control provides the compute and storage.',
+    icon: 'hard-drives',
+  },
+  {
+    title: 'Plumba agent',
+    description: 'A local agent will connect the host to your Plumba server.',
+    icon: 'code',
+  },
+  {
+    title: 'Your nodes',
+    description:
+      'Node clients will run on the host and appear in the dashboard.',
+    icon: 'cube',
+  },
+] as const;
+
+const questions = [
+  {
+    question: 'Can I deploy nodes today?',
+    answer:
+      'Not yet. Host enrollment, node deployment, and live monitoring are still in development. The dashboard is an interface preview.',
+  },
+  {
+    question: 'Will Plumba run on my hardware?',
+    answer:
+      'Yes. Plumba is designed for self-hosting, with a Rust server and an agent that runs alongside your nodes.',
+  },
+  {
+    question: 'Which blockchains are supported?',
+    answer:
+      'Client integrations are being built. Check the repository for the latest implementation status.',
   },
 ];
 ---
 
 <Layout title="Plumba | Deploy, manage, and monitor blockchain nodes">
-  <div class="hero-stage">
-    <div class="terrain" aria-hidden="true">
+  <div class="relative isolate min-h-[640px] overflow-hidden max-[900px]:min-h-[600px] max-[600px]:min-h-[540px]">
+    <div
+      class="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
+      aria-hidden="true"
+    >
       <img
+        class="absolute bottom-0 left-1/2 h-auto w-[max(100%,1100px)] max-w-[1920px] -translate-x-1/2 opacity-80 mix-blend-lighten [image-rendering:pixelated] max-[900px]:w-[max(100%,800px)] max-[900px]:opacity-65 max-[600px]:w-[max(100%,560px)] max-[600px]:opacity-85"
         src="/images/terrain-dither.webp"
         width="1024"
         height="512"
@@ -31,19 +77,36 @@ const capabilities = [
         fetchpriority="low"
       />
     </div>
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <h1 id="hero-title">
+    <section
+      class="mx-auto flex min-h-[640px] w-[min(760px,calc(100%-48px))] items-center justify-center pt-12 pb-40 text-center max-[900px]:min-h-[600px] max-[900px]:pt-[72px] max-[600px]:min-h-[540px] max-[600px]:w-[calc(100%-40px)] max-[600px]:pt-12"
+      aria-labelledby="hero-title"
+    >
+      <div class="w-full min-w-0">
+        <h1
+          id="hero-title"
+          class="text-[clamp(44px,6vw,66px)] leading-[1.04] tracking-[-0.045em] text-balance max-[600px]:text-[33px] max-[600px]:leading-[1.07] max-[360px]:text-[27.5px] max-[360px]:leading-[1.1]"
+        >
           Deploy. Manage.
           <br />
           Monitor.
         </h1>
-        <p class="hero-description">Blockchain nodes on your own hardware.</p>
-        <nav class="hero-links" aria-label="Project links">
-          <a href="#project">
+        <p class="mx-auto mt-6 max-w-[560px] text-[16.5px] leading-7 text-muted-foreground text-pretty max-[600px]:mt-5 max-[600px]:max-w-[400px] max-[600px]:leading-[26px]">
+          Blockchain nodes on your own hardware.
+        </p>
+        <nav
+          class="mt-8 flex flex-wrap items-center justify-center gap-6 text-[13px] leading-5 max-[600px]:mt-6 max-[600px]:gap-5"
+          aria-label="Project links"
+        >
+          <a
+            class="inline-flex items-center gap-1.5 underline underline-offset-4 hover:text-primary"
+            href="#project"
+          >
             Explore features <Icon name="arrow-right" size={14} />
           </a>
-          <a href={repositoryUrl}>
+          <a
+            class="inline-flex items-center gap-1.5 underline underline-offset-4 hover:text-primary"
+            href={repositoryUrl}
+          >
             GitHub <Icon name="arrow-up-right" size={14} />
           </a>
         </nav>
@@ -52,22 +115,191 @@ const capabilities = [
   </div>
 
   <section
-    class="project-section content-width"
+    class="mx-auto w-[min(1120px,calc(100%-64px))] border-t border-border py-28 max-[900px]:py-[88px] max-[600px]:w-[calc(100%-40px)] max-[600px]:py-16"
     id="project"
     aria-labelledby="project-title"
   >
-    <h2 id="project-title">What Plumba does</h2>
-    <div class="capabilities">
+    <div class="max-w-[690px]">
+      <h2
+        id="project-title"
+        class="text-[clamp(30px,4vw,48px)] leading-[1.15] tracking-[-0.04em] text-balance"
+      >
+        One place for your infrastructure.
+      </h2>
+      <p class="mt-[18px] max-w-[58ch] leading-[1.7] text-muted-foreground text-pretty">
+        See the machines you own and the nodes they run from one dashboard.
+      </p>
+    </div>
+    <figure class="mt-12 max-[600px]:mt-8">
+      <picture>
+        <source
+          media="(max-width: 600px)"
+          srcset="/images/dashboard-preview-mobile.jpg"
+          width="375"
+          height="812"
+        />
+        <img
+          class="block h-auto w-full border border-border bg-card"
+          src="/images/dashboard-preview.jpg"
+          width="1365"
+          height="707"
+          alt="Plumba dashboard preview showing host setup and a disconnected server status"
+          loading="lazy"
+          decoding="async"
+        />
+      </picture>
+      <figcaption class="mt-[14px] text-right text-xs leading-[1.6] text-muted-foreground max-[600px]:text-left">
+        Interface preview. Plumba is in active development.
+      </figcaption>
+    </figure>
+  </section>
+
+  <section
+    class="mx-auto grid w-[min(1120px,calc(100%-64px))] grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] gap-16 border-t border-border py-28 max-[900px]:grid-cols-1 max-[900px]:gap-10 max-[900px]:py-[88px] max-[600px]:w-[calc(100%-40px)] max-[600px]:py-16"
+    aria-labelledby="capabilities-title"
+  >
+    <div class="max-w-[390px] max-[900px]:max-w-[640px]">
+      <h2
+        id="capabilities-title"
+        class="text-[clamp(30px,4vw,48px)] leading-[1.15] tracking-[-0.04em] text-balance"
+      >
+        The work, in one place.
+      </h2>
+      <p class="mt-[18px] max-w-[58ch] leading-[1.7] text-muted-foreground text-pretty">
+        Plumba is being built around the three things node operators do every
+        day.
+      </p>
+    </div>
+    <div class="border-t border-border">
       {capabilities.map((capability) => (
-        <article>
-          <h3>{capability.title}</h3>
-          <p>{capability.description}</p>
+        <article class="grid grid-cols-[minmax(150px,0.65fr)_minmax(0,1fr)] gap-6 border-b border-border py-7 max-[600px]:grid-cols-1 max-[600px]:gap-2.5 max-[600px]:py-[22px]">
+          <div class="flex items-center gap-[14px]">
+            <span class="shrink-0 text-primary">
+              <Icon name={capability.icon} size={23} />
+            </span>
+            <h3 class="text-lg leading-normal">{capability.title}</h3>
+          </div>
+          <p class="text-[15px] leading-[1.7] text-muted-foreground text-pretty">
+            {capability.description}
+          </p>
         </article>
       ))}
     </div>
-    <p class="project-note">
-      Plumba is in active development. Follow the build on{' '}
-      <a href={repositoryUrl}>GitHub</a>.
+  </section>
+
+  <section
+    class="mx-auto grid w-[min(1120px,calc(100%-64px))] grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)] items-center gap-20 border-t border-border py-28 max-[900px]:grid-cols-1 max-[900px]:gap-10 max-[900px]:py-[88px] max-[600px]:w-[calc(100%-40px)] max-[600px]:py-16"
+    aria-labelledby="workflow-title"
+  >
+    <div>
+      <h2
+        id="workflow-title"
+        class="text-[clamp(30px,4vw,48px)] leading-[1.15] tracking-[-0.04em] text-balance"
+      >
+        From your machine to your node.
+      </h2>
+      <p class="mt-[18px] max-w-[58ch] leading-[1.7] text-muted-foreground text-pretty">
+        This is the path Plumba is building from hardware to a running client.
+      </p>
+      <ol class="mt-10 grid list-none gap-7 p-0 max-[600px]:mt-8">
+        {workflow.map((item) => (
+          <li class="grid grid-cols-[44px_minmax(0,1fr)] items-start gap-[18px]">
+            <span class="grid size-11 place-items-center border border-border bg-card text-primary">
+              <Icon name={item.icon} size={20} />
+            </span>
+            <div>
+              <h3 class="text-[17px] leading-normal">{item.title}</h3>
+              <p class="mt-[3px] text-sm leading-[1.65] text-muted-foreground text-pretty">
+                {item.description}
+              </p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+    <div
+      class="grid min-h-[450px] place-items-center overflow-hidden bg-background max-[900px]:min-h-[360px] max-[600px]:min-h-[280px]"
+      aria-hidden="true"
+    >
+      <img
+        class="block h-auto w-[min(100%,480px)] mix-blend-lighten max-[600px]:w-[min(100%,360px)]"
+        src="/images/network-dither.webp"
+        width="512"
+        height="512"
+        alt=""
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+  </section>
+
+  <section
+    class="mx-auto w-[min(1120px,calc(100%-64px))] border border-border bg-card p-[76px] max-[600px]:w-[calc(100%-40px)] max-[600px]:px-7 max-[600px]:py-9"
+    aria-labelledby="ownership-title"
+  >
+    <span class="text-primary">
+      <Icon name="lock-simple" size={28} />
+    </span>
+    <h2
+      id="ownership-title"
+      class="mt-[34px] max-w-[16ch] text-[clamp(34px,4.4vw,54px)] leading-[1.12] tracking-[-0.04em] text-balance max-[600px]:mt-6"
+    >
+      Your hardware. Your rules.
+    </h2>
+    <p class="mt-[18px] max-w-[62ch] leading-[1.7] text-muted-foreground text-pretty">
+      Plumba is open source and designed to be self-hosted. The dashboard, Rust
+      server, and agents belong in the infrastructure you control.
     </p>
+    <a
+      class="mt-8 inline-flex items-center gap-2 text-sm underline underline-offset-4 hover:text-primary"
+      href={repositoryUrl}
+    >
+      GitHub <Icon name="arrow-up-right" size={15} />
+    </a>
+  </section>
+
+  <section
+    class="mx-auto mt-28 grid w-[min(1120px,calc(100%-64px))] grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] gap-16 border-t border-border py-28 max-[900px]:mt-[88px] max-[900px]:grid-cols-1 max-[900px]:gap-10 max-[900px]:py-[88px] max-[600px]:mt-16 max-[600px]:w-[calc(100%-40px)] max-[600px]:py-16"
+    aria-labelledby="questions-title"
+  >
+    <h2
+      id="questions-title"
+      class="text-[clamp(30px,4vw,48px)] leading-[1.15] tracking-[-0.04em] text-balance"
+    >
+      A few things to know.
+    </h2>
+    <div class="border-t border-border">
+      {questions.map((item) => (
+        <details class="group border-b border-border">
+          <summary class="flex min-h-[76px] cursor-pointer list-none items-center justify-between gap-5 py-5 text-[15px] leading-[1.6] [&::-webkit-details-marker]:hidden">
+            {item.question}
+            <Icon
+              name="plus"
+              size={17}
+              class="shrink-0 text-primary transition-transform duration-150 group-open:rotate-45 motion-reduce:transition-none"
+            />
+          </summary>
+          <p class="max-w-[62ch] pr-9 pb-[26px] text-sm leading-[1.7] text-muted-foreground text-pretty">
+            {item.answer}
+          </p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section
+    class="mx-auto w-[min(1120px,calc(100%-64px))] pt-12 pb-28 text-center max-[600px]:w-[calc(100%-40px)] max-[600px]:pt-2 max-[600px]:pb-20"
+    aria-labelledby="closing-title"
+  >
+    <h2
+      id="closing-title"
+      class="text-[clamp(36px,4.5vw,56px)] leading-[1.12] tracking-[-0.04em] text-balance"
+    >
+      Follow the build.
+    </h2>
+    <p class="mt-[18px] leading-[1.7] text-muted-foreground text-pretty">
+      Read the code, watch the progress, and help shape Plumba.
+    </p>
+    <RepositoryButton href={repositoryUrl} />
   </section>
 </Layout>

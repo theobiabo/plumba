@@ -2,25 +2,45 @@
 import { repositoryUrl } from '../data/project';
 ---
 
-<footer class="site-footer content-width">
-  <nav aria-label="Footer navigation">
-    <a href="/#project">Features</a>
-    <span aria-hidden="true">·</span>
-    <a href={repositoryUrl}>GitHub</a>
-    <span aria-hidden="true">·</span>
+<footer class="mx-auto w-[min(1120px,calc(100%-64px))] border-t border-border pt-6 pb-8 text-center max-[600px]:w-[calc(100%-40px)]">
+  <nav
+    class="flex flex-wrap items-center justify-center gap-3 text-xs leading-5 max-[600px]:gap-2"
+    aria-label="Footer navigation"
+  >
+    <a class="underline underline-offset-4 hover:text-primary" href="/#project">
+      Features
+    </a>
+    <span class="text-muted-foreground" aria-hidden="true">
+      ·
+    </span>
     <a
+      class="underline underline-offset-4 hover:text-primary"
+      href={repositoryUrl}
+    >
+      GitHub
+    </a>
+    <span class="text-muted-foreground" aria-hidden="true">
+      ·
+    </span>
+    <a
+      class="underline underline-offset-4 hover:text-primary aria-[current=page]:text-foreground"
       href="/privacy"
       aria-current={Astro.url.pathname === '/privacy' ? 'page' : undefined}
     >
       Privacy
     </a>
-    <span aria-hidden="true">·</span>
+    <span class="text-muted-foreground" aria-hidden="true">
+      ·
+    </span>
     <a
+      class="underline underline-offset-4 hover:text-primary aria-[current=page]:text-foreground"
       href="/terms"
       aria-current={Astro.url.pathname === '/terms' ? 'page' : undefined}
     >
       Project terms
     </a>
   </nav>
-  <p>Open source. Self hosted. Made for your hardware.</p>
+  <p class="mt-4 text-xs leading-5 text-muted-foreground">
+    Open source. Self hosted. Made for your hardware.
+  </p>
 </footer>

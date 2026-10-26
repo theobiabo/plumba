@@ -49,8 +49,11 @@ const socialImage = Astro.site
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
   </head>
-  <body>
-    <a class="skip-link" href="#main-content">
+  <body class="relative isolate min-w-[280px] text-[16.5px] leading-[1.6] antialiased">
+    <a
+      class="fixed top-3 left-3 z-10 -translate-y-[160%] rounded-sm bg-foreground px-3 py-2 text-sm text-background focus:translate-y-0"
+      href="#main-content"
+    >
       Skip to content
     </a>
     <SiteHeader />
