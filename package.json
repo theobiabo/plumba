@@ -11,8 +11,8 @@
     "dev": "turbo run dev --filter=@plumba/dashboard",
     "dev:site": "turbo run dev --filter=site",
     "build": "turbo run build",
-    "check": "turbo run check --filter=@plumba/dashboard --filter=site --filter=plumba-rust",
-    "lint": "turbo run lint --filter=@plumba/dashboard --filter=site --filter=plumba-rust",
+    "check": "turbo run check --filter=@plumba/dashboard --filter=@plumba/ui --filter=site --filter=plumba-rust",
+    "lint": "turbo run lint --filter=@plumba/dashboard --filter=@plumba/ui --filter=site --filter=plumba-rust",
     "test": "turbo run test --filter=plumba-rust",
     "format": "prettier --write . && turbo run format --filter=plumba-rust",
     "format:check": "prettier --check . && turbo run format --filter=plumba-rust -- --check"

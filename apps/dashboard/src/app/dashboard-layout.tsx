@@ -1,15 +1,16 @@
 import {
   ArrowUpRight,
-  Cube,
   GearSix,
+  HardDrives,
   House,
   List,
   Plugs,
   Stack,
-  HardDrives,
   X,
 } from '@phosphor-icons/react';
-import { useState } from 'react';
+import { Badge } from '@plumba/ui/components/badge';
+import { Button } from '@plumba/ui/components/button';
+import { useLayoutEffect, useState } from 'react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 
 const navigation = [
@@ -24,12 +25,16 @@ export function DashboardLayout() {
   const { pathname } = useLocation();
   const currentPage = navigation.find((item) => item.to === pathname);
 
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <div className="dashboard">
       <a className="skip-link" href="#main-content">
         Skip to content
       </a>
-      <aside className={`sidebar${navigationOpen ? ' sidebar--open' : ''}`}>
+      <aside className="sidebar" data-open={navigationOpen}>
         <div className="sidebar-heading">
           <NavLink
             className="brand"
@@ -37,13 +42,12 @@ export function DashboardLayout() {
             aria-label="Plumba overview"
             onClick={() => setNavigationOpen(false)}
           >
-            <span className="brand-mark">
-              <Cube size={22} weight="duotone" aria-hidden="true" />
-            </span>
-            <span>plumba</span>
+            plumba
           </NavLink>
-          <button
-            className="icon-button navigation-toggle"
+          <Button
+            className="navigation-toggle"
+            variant="ghost"
+            size="icon"
             type="button"
             aria-label={navigationOpen ? 'Close navigation' : 'Open navigation'}
             aria-expanded={navigationOpen}
@@ -51,11 +55,11 @@ export function DashboardLayout() {
             onClick={() => setNavigationOpen(!navigationOpen)}
           >
             {navigationOpen ? (
-              <X size={22} aria-hidden="true" />
+              <X aria-hidden="true" />
             ) : (
-              <List size={22} aria-hidden="true" />
+              <List aria-hidden="true" />
             )}
-          </button>
+          </Button>
         </div>
         <nav
           id="primary-navigation"
@@ -67,32 +71,25 @@ export function DashboardLayout() {
               key={to}
               to={to}
               end={to === '/'}
-              className={({ isActive }) =>
-                `nav-link${isActive ? ' nav-link--active' : ''}`
-              }
+              className="nav-link"
               onClick={() => setNavigationOpen(false)}
             >
-              <Icon size={20} aria-hidden="true" />
+              <Icon aria-hidden="true" />
               {label}
             </NavLink>
           ))}
         </nav>
         <div className="sidebar-footer">
-          <div className="ownership-note">
-            <span className="ownership-symbol" aria-hidden="true">
-              <Plugs size={20} />
-            </span>
-            <p>
-              Your hardware.
-              <br />
-              Your infrastructure.
-            </p>
-          </div>
+          <p className="ownership-note">
+            Your hardware.
+            <br />
+            Your infrastructure.
+          </p>
           <NavLink className="footer-link" to="/settings">
             Connection settings
-            <ArrowUpRight size={16} aria-hidden="true" />
+            <ArrowUpRight aria-hidden="true" />
           </NavLink>
-          <span className="sidebar-version">Open source · Self-hosted</span>
+          <span className="sidebar-version">Open source · Self hosted</span>
         </div>
       </aside>
       <div className="workspace">
@@ -104,10 +101,10 @@ export function DashboardLayout() {
             </span>
             <span>{currentPage?.label ?? 'Page not found'}</span>
           </div>
-          <span className="connection-status">
-            <span className="status-dot" aria-hidden="true" />
+          <Badge variant="outline" className="connection-status">
+            <Plugs aria-hidden="true" />
             Server not connected
-          </span>
+          </Badge>
         </header>
         <main id="main-content" className="main-content" tabIndex={-1}>
           <Outlet />

@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@iconify-json/ph": "^1.2.2",
+    "@plumba/ui": "workspace:*",
     "astro": "^7.4.2"
   },
   "devDependencies": {

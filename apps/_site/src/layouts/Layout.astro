@@ -1,7 +1,7 @@
 ---
 import '../styles/global.css';
-import SiteHeader from '../components/SiteHeader.astro';
-import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/site-header.astro';
+import SiteFooter from '../components/site-footer.astro';
 
 interface Props {
   title: string;
@@ -47,13 +47,6 @@ const socialImage = Astro.site
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImage} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link
-      rel="preload"
-      href="/fonts/departure-mono-v1.500.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
     <title>{title}</title>
   </head>
   <body>

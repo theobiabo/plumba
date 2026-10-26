@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "base-lyra",
+  "rsc": false,
+  "tsx": true,
+  "tailwind": {
+    "config": "",
+    "css": "src/styles/globals.css",
+    "baseColor": "neutral",
+    "cssVariables": true
+  },
+  "iconLibrary": "phosphor",
+  "aliases": {
+    "components": "@plumba/ui/components",
+    "ui": "@plumba/ui/components",
+    "hooks": "@plumba/ui/hooks",
+    "lib": "@plumba/ui/lib",
+    "utils": "@plumba/ui/lib/utils"
+  }
+}

@@ -1,9 +1,10 @@
+import { Button } from '@plumba/ui/components/button';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
-import { DashboardLayout } from './DashboardLayout';
-import { HostsPage } from '../features/hosts/HostsPage';
-import { NodesPage } from '../features/nodes/NodesPage';
-import { OverviewPage } from '../features/overview/OverviewPage';
-import { SettingsPage } from '../features/settings/SettingsPage';
+import { DashboardLayout } from './dashboard-layout';
+import { HostsPage } from '../features/hosts/hosts-page';
+import { NodesPage } from '../features/nodes/nodes-page';
+import { OverviewPage } from '../features/overview/overview-page';
+import { SettingsPage } from '../features/settings/settings-page';
 
 export function App() {
   return (
@@ -20,9 +21,9 @@ export function App() {
               <section className="not-found">
                 <h1>Page not found</h1>
                 <p>This page does not exist in your dashboard.</p>
-                <Link className="button button--primary" to="/">
+                <Button render={<Link to="/" />} nativeButton={false}>
                   Back to overview
-                </Link>
+                </Button>
               </section>
             }
           />

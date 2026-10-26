@@ -1,7 +1,7 @@
-import '@fontsource-variable/geist';
+import '@plumba/ui/globals.css';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { App } from './app/App';
+import { App } from './app/app';
 import './styles.css';
 
 const root = document.getElementById('root');

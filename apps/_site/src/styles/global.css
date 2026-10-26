@@ -1,21 +1,13 @@
-@font-face {
-  font-family: 'Departure Mono';
-  src: url('/fonts/departure-mono-v1.500.woff2') format('woff2');
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-}
+@import '@plumba/ui/theme.css';
 
 :root {
   color-scheme: dark;
-  font-family: 'Departure Mono', monospace;
+  font-family: var(--font-brand);
   font-synthesis: none;
   font-size: 16.5px;
   line-height: 1.6;
-  background: #111111;
-  color: #e8e8e8;
-  --muted: #a0a0a0;
-  --line: #343434;
+  background: var(--background);
+  color: var(--foreground);
   scroll-padding-top: 32px;
   scrollbar-color: #555555 #111111;
 }
@@ -33,8 +25,8 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 ::selection {
-  color: #111111;
-  background: #dedede;
+  color: var(--primary-foreground);
+  background: var(--primary);
 }
 a {
   color: inherit;
@@ -42,7 +34,7 @@ a {
   text-decoration-thickness: 1px;
 }
 a:hover {
-  color: #ffffff;
+  color: var(--primary);
 }
 button,
 code {
@@ -62,7 +54,7 @@ h3 {
   margin: 0;
 }
 p {
-  color: var(--muted);
+  color: var(--muted-foreground);
   text-wrap: pretty;
 }
 h1,
@@ -71,7 +63,7 @@ h3 {
   text-wrap: balance;
 }
 :focus-visible {
-  outline: 2px solid #e8e8e8;
+  outline: 2px solid var(--ring);
   outline-offset: 5px;
   border-radius: 2px;
 }
@@ -202,7 +194,7 @@ main:focus {
   max-width: 640px;
   padding-top: 64px;
   padding-bottom: 88px;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--border);
 }
 .project-section h2 {
   font-size: 22px;
@@ -217,10 +209,10 @@ main:focus {
   grid-template-columns: 128px minmax(0, 1fr);
   gap: 20px;
   padding: 22px 0;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--border);
 }
 .capabilities article:last-child {
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--border);
 }
 .capabilities h3 {
   font-size: 16.5px;
@@ -238,7 +230,7 @@ main:focus {
 .site-footer {
   padding-top: 24px;
   padding-bottom: 32px;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--border);
   text-align: center;
 }
 .site-footer nav {

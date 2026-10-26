@@ -1,0 +1,46 @@
+@font-face {
+  font-family: 'Departure Mono';
+  src: url('../assets/departure-mono-v1.500.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: dark;
+  --font-brand: 'Departure Mono', monospace;
+  --background: #111111;
+  --foreground: #f2f2f0;
+  --card: #1a1a1a;
+  --card-foreground: #f2f2f0;
+  --popover: #202020;
+  --popover-foreground: #f2f2f0;
+  --primary: #ff3616;
+  --primary-foreground: #111111;
+  --primary-hover: #ff5a3d;
+  --secondary: #272727;
+  --secondary-foreground: #f2f2f0;
+  --muted: #272727;
+  --muted-foreground: #a7a7a7;
+  --accent: #303030;
+  --accent-foreground: #f2f2f0;
+  --destructive: #ff6868;
+  --destructive-foreground: #111111;
+  --border: #383838;
+  --input: #494949;
+  --ring: #ff3616;
+  --chart-1: #ff3616;
+  --chart-2: #f2f2f0;
+  --chart-3: #a7a7a7;
+  --chart-4: #656565;
+  --chart-5: #383838;
+  --radius: 0.375rem;
+  --sidebar: #151515;
+  --sidebar-foreground: #f2f2f0;
+  --sidebar-primary: #ff3616;
+  --sidebar-primary-foreground: #111111;
+  --sidebar-accent: #282828;
+  --sidebar-accent-foreground: #f2f2f0;
+  --sidebar-border: #343434;
+  --sidebar-ring: #ff3616;
+}

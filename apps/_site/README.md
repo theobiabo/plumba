@@ -32,7 +32,7 @@ The build runs Astro's type checker before generating `apps/_site/dist`. Root Tu
 
 Set `SITE_URL` to the public origin when building for deployment. Astro uses it to generate canonical links and absolute social preview URLs.
 
-The site self-hosts Departure Mono v1.500 from the [official release](https://github.com/rektdeckard/departure-mono/releases/tag/v1.500). Its SIL Open Font License is included at `public/fonts/OFL.txt`.
+The site imports Departure Mono v1.500 and the shared color tokens from `@plumba/ui`. The font comes from the [official release](https://github.com/rektdeckard/departure-mono/releases/tag/v1.500), and its SIL Open Font License is included at `public/fonts/OFL.txt`.
 
 ## Structure
 
