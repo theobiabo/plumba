@@ -15,7 +15,7 @@ pnpm install --frozen-lockfile
 pnpm dev
 ```
 
-The dashboard runs at http://127.0.0.1:5173. It includes overview, hosts, nodes, and settings routes with explicit disconnected states. The Rust crates are scaffolds; host enrollment, node deployment, and monitoring require backend implementation.
+The dashboard runs at http://127.0.0.1:5173. It includes Overview, Node Catalog, My Nodes, Hosts, Storage, Activity, and Settings routes. Its data and actions are an in-memory interface preview that resets on reload. The Rust crates are scaffolds; host enrollment, node deployment, RPC access, and monitoring require backend implementation.
 
 Start the Astro homepage separately:
 
